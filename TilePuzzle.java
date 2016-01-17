@@ -1,3 +1,5 @@
+//class TilePuzzle, text representation
+
 public class TilePuzzle {
 	private int[][] _puzzle;
 	private int _emptyCellRow;
