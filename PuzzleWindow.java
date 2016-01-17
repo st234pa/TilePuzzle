@@ -1,4 +1,5 @@
 import wheels.users.*;
+import java.util.*;
 
 public class PuzzleWindow extends Frame{
 

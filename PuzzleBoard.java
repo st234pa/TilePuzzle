@@ -10,23 +10,37 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         private Puzzle _puzzle;
         
         public PuzzleBoard(int n) {
-        super(500,300);
-        this.setSize(200,200);
-        // for us n is 3, which is the size of the board
-            // set color of the rectangle (use super because we extend rectangle)
-            // create a puzzle
-            // shuffle the puzzle (1000 times!)
-            // create the _tiles and add them to the PuzzleTile
-            // call placeTiles()
-            // set the size of the board
+			super(Color.black);
+	
+			//Puzzle creation, 1000 shuffles
+			_puzzle = new Puzzle(n);
+			_puzzle.shuffle(1000);
+
+			_tiles = new ArrayList<PuzzleTile>();
+			for (int i = 0;i < ( n*n -1); i++)
+				_tiles.add(new PuzzleTile(this,i+1));
+            
+			placeTiles();
+
+			this.setSize(_tiles.get(0).getWidth() * n, _tiles.get(0).getHeight() *n); //sets the board size for the tiles
         }
         
         public void placeTiles() {
+			if (_puzzle == null) return;  //for overloading
+			
+			placeTiles(1);
+		}
+		public void placeTiles(int n){
+			int x = getXLocation();
+			int y = getYLocation();
+			_tiles.get(n-1).setLocation(x + ((n-1)%_puzzle.size())*(_tiles.get(n-1)).getWidth(), y + ((n-1)/_puzzle.size())*(_tiles.get(n-1)).getHeight());
+			if (n < _tiles.size()) placeTiles(n +1);
+		}
+
             // test if _puzzle is null and return because we want to overload the function.... board extends rectangle and we want everything to move to the saem location when we call set location
             // get the x and y of the current object
             // loops on the puzzle
             // for each row, for each column
-        }
         
         public void setLocation (int x, int y) {
             //use the super of set location and then place the tiles at (x,y)
