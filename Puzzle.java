@@ -1,6 +1,6 @@
-//class TilePuzzle, text representation
+//class Puzzle, text representation
 
-public class TilePuzzle {
+public class Puzzle {
 	private int[][] _puzzle;
 	private int _emptyCellRow;
 	private int _emptyCellColumn;
@@ -18,21 +18,16 @@ public class TilePuzzle {
 				k++;
 			}
 		}
-		_puzzle[size()-1][size()-1] = 0;
-		_emptyCellRow = 0;
-		_emptyCellColumn = 0;
+		_emptyCellRow = _puzzle.length - 1;
+		_emptyCellColumn = _puzzle.length - 1;
+		_puzzle[_emptyCellRow][_emptyCellColumn] = 0;
 	}
 
 	public boolean isSolved() {
-		int k = 1;
-		for (int i = 0; i < size(); i++) {
-			for (int j = 0; j < size(); j++) {
-				if (at(i, j) != k && k < size()*size())
+		for (int i = 0; k = 1; i < size(); i++) {
+			for (int j = 0; j < size(); j++, k++)
+				if (_puzzle[i][j] != 0 && (_puzzle[i][j] != k))
 					return false;
-				k++;
-				if (k == size()*size())
-					k = 0;
-			}
 		}
 		return true;
 	}

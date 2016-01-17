@@ -1,7 +1,7 @@
 import wheels.users.*;
 import java.awt.event.*;
 
-public PuzzleTile extends Image {
+public class PuzzleTile extends Image {
 
     private PuzzleBoard _owner; // a puzzle board
     public int _n; // the number on the tile
@@ -12,7 +12,7 @@ public PuzzleTile extends Image {
 		_n = n;
     }
 
-    public voud mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e) {
         _owner.tileClicked(_n); // when i click on the image, it calls the board tile clicked with the number
     }
 }
