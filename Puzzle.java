@@ -64,7 +64,7 @@ public class Puzzle {
 	//pre:
 	//post:
 	//O(1)
-	public emptyPos() {
+	public int emptyPos() {
 		return _emptyCellRow * size() + _emptyCellColumn;
 	}
 
@@ -78,7 +78,7 @@ public class Puzzle {
 	//pre:
 	//post:
 	//O(n^2)
-	public pos(int n) {
+	public int pos(int n) {
 		for (int i = 0; i < size(); i++) {
 			for (int j = 0; j < size(); j++) {
 				if (at(i, j) == n)
