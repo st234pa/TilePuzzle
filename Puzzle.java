@@ -48,35 +48,35 @@ public class Puzzle {
 	}
 
 	//pre: 
-	//post:
+	//post: Returns value of _emptyCellRow, the row of the element 0 in its current position.
 	//O(1)
 	public int emptyRow() {
 		return _emptyCellRow;
 	}
 
 	//pre:
-	//post:
+	//post: Returns value of _emptyCellColumn, the column of the element 0 in its current position.
 	//O(1)
 	public int emptyColumn() {
 		return _emptyCellColumn;
 	}
 
 	//pre:
-	//post:
+	//post: returns the position of the empty cell, calculated by the row multiplied by the size() + the column.
 	//O(1)
 	public int emptyPos() {
 		return _emptyCellRow * size() + _emptyCellColumn;
 	}
 
-	//pre:
-	//post:
+	//pre: 0 <= r < size(), 0 <= c < size(), so that the cell is on the board.
+	//post: returns the value of the element at a given row and column.
 	//O(1)
 	public int at(int r, int c) {
 		return _puzzle[r][c];
 	}
 
-	//pre:
-	//post:
+	//pre: n is a value of a tile on the board, so 0 <= n < size().
+	//post: returns the position of n on the board, calculated by the row multiplied by the size() + the column.
 	//O(n^2)
 	public int pos(int n) {
 		for (int i = 0; i < size(); i++) {
@@ -88,22 +88,22 @@ public class Puzzle {
 		return -1;
 	}
 
-	//pre:
-	//post:
+	//pre: p is a position on the board, calculated by row * size() + column
+	//post: returns row of this position by dividing p by size() to get the quotient, row
 	//O(1)
 	public int posRow(int p) {
 		return p / _puzzle.length;
 	}
 
-	//pre:
-	//post:
+	//pre: p is a position on the board, calculated by row * size() + column
+	//post: returns column of this position by dividing p by size() to get the quotient, column
 	//O(1)
 	public int posCol(int p) {
 		return p % _puzzle.length;
 	}
 
 	//pre:
-	//post:
+	//post: prints the values of the elements of _puzzle. rows separated by new lines.
 	//O(n^2)
 	public void print() {
 		for (int i = 0; i < size(); i++) {
@@ -114,15 +114,15 @@ public class Puzzle {
 		}
 	}
 
-	//pre:
-	//post:
+	//pre: _puzzle is a square 2-d array
+	//post: returns the size of the _puzzle, or the length of _puzzle.
 	//O(1)
 	public int size() {
 		return _puzzle.length;
 	}
 
-	//pre:
-	//post:
+	//pre: count > 0. _puzzle is set up.
+	//post: moves random tiles count times. --> shuffled board.
 	//O(n)
 	public void shuffle(int count) { // count is the number of random moves to make
 		for (int i = 0; i < count; i++) {
@@ -138,8 +138,8 @@ public class Puzzle {
 		}
 	}
 
-	//pre:
-	//post:
+	//pre: dr and dc could have the following values: (-1, 0), (1, 0), (0, -1), (0, 1)
+	//post: switches the tile above/below/left of /right of the empty cell with the empty cell. updates _emptyCellRow and _emptyCellColumn, updates values of elements.
 	//O(1)
 	public boolean move(int dr, int dc) { //dr and dc would refer to the relative position of the tile that we want to move.
 		int newRow = emptyRow() + dr;
