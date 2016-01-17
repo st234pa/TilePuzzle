@@ -1,15 +1,15 @@
 import wheels.users.*;
 
-public class PuzzleWindow {
+public class PuzzleWindow extends Frame{
 
     public PuzzleWindow {
-        // creates the frame
-        // creates a puzzle board of size 3
-        // sets location of the board to (100, 100)
+        super;// creates the frame
+        PuzzleBoard board = new PuzzleBoard(3);// creates a puzzle board of size 3
+        public void setLocation(100,100);// sets location of the board to (100, 100)
     }
 
     public static void main(String[] args) {
-        // creates a new puzzle window
+        PuzzleWindow p = new PuzzleWindow();// creates a new puzzle window
     }
 
 }
