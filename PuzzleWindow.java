@@ -5,7 +5,7 @@ public class PuzzleWindow extends Frame{
     public PuzzleWindow {
         super;// creates the frame
         PuzzleBoard board = new PuzzleBoard(3);// creates a puzzle board of size 3
-        public void setLocation(100,100);// sets location of the board to (100, 100)
+        board.setLocation(100,100);// sets location of the board to (100, 100)
     }
 
     public static void main(String[] args) {
