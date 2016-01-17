@@ -10,10 +10,10 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         private Puzzle _puzzle;
         
         public PuzzleBoard(int n) {
-            // for us n is 3, which is the size of the board
+        super(500,300);
+        this.setSize(200,200);
+        // for us n is 3, which is the size of the board
             // set color of the rectangle (use super because we extend rectangle)
-            super();
-            setLocation(300,200);
             // create a puzzle
             // shuffle the puzzle (1000 times!)
             // create the _tiles and add them to the PuzzleTile
