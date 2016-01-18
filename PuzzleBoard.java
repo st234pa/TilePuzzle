@@ -1,3 +1,4 @@
+
 import java.util.*;
 import wheels.users.*;
 import java.awt.Color;
@@ -10,7 +11,7 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         private Puzzle _puzzle;
         
         public PuzzleBoard(int n) {
-			super(Color.black);
+			super(Color.gray);
 	
 			//Puzzle creation, 1000 shuffles
 			_puzzle = new Puzzle(n);
@@ -37,11 +38,6 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
 			if (n < _tiles.size()) placeTiles(n +1);
 		}
 
-            // test if _puzzle is null and return because we want to overload the function.... board extends rectangle and we want everything to move to the saem location when we call set location
-            // get the x and y of the current object
-            // loops on the puzzle
-            // for each row, for each column
-        
         public void setLocation (int x, int y) {
             //use the super of set location and then place the tiles at (x,y)
         }
