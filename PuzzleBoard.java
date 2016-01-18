@@ -40,11 +40,15 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
 
         public void setLocation (int x, int y) {
             //use the super of set location and then place the tiles at (x,y)
+            super.setLocation(x,y);
+            placeTiles();
         }
         
         public void tileClicked(int n) {
             // asks the puzzle for the position of n
             // slide(n)
+            int pos = _puzzle.pos(n);
+            slide(p);
         }
         
         public void slide(int p) {
