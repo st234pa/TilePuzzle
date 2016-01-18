@@ -1,5 +1,6 @@
 //class Puzzle, text representation
 
+//this is my comment
 public class Puzzle {
 	private int[][] _puzzle;
 	private int _emptyCellRow;
