@@ -68,9 +68,9 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         
         public void mouseClicked(MouseEvent e) { //this gets called when the user clicks the empty cell (gray) which is really just the board
             // creates a puzzle solver for that _puzzle
-            PuzzleSolver solver = new PuzzleSolver(_puzzle);
+            PuzzleSolver solver = new PuzzleSolver(_puzzle); //THIS STUFF WILL CHANGE IF WE MAKE A SOLVER SUPERCLASS!!!
             // solve and check the result
-            if (solver.solve())
+            if (solver.solve()) 
                 // if it is solved, ask the solver to play using "this" as the player
                 solver.play(this);
         }
