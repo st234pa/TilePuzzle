@@ -53,16 +53,6 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         super.setLocation(x,y);
         placeTiles();
     }
-    
-    // pre condition: the tile we want to move has been clicked
-    // post condition: the tile clicked is moved to the empty space 
-    // bigO notation: O(N^2)    
-    public void tileClicked(int n) {
-        // asks the puzzle for the position of n
-        // slide(n)
-        int pos = _puzzle.pos(n);
-        slide(p);
-    }
       
     // pre condition: we want to move a tile
     //                we can only move in one direction (either the row changes OR the column changes, but not both)
@@ -81,6 +71,16 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
             _puzzle.move(dr, dc); //updates the 2d array
             placeTiles(); //updates the visuals
         }    
+    }
+    
+    // pre condition: the tile we want to move has been clicked
+    // post condition: the tile clicked is moved to the empty space 
+    // bigO notation: O(N^2)    
+    public void tileClicked(int n) {
+        // asks the puzzle for the position of n
+        // slide(n)
+        int pos = _puzzle.pos(n);
+        slide(p);
     }
     
     // pre condition: the empty (gray) cell is clicked
