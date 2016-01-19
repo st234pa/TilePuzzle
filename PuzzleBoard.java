@@ -80,7 +80,7 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         // asks the puzzle for the position of n
         // slide(n)
         int pos = _puzzle.pos(n);
-        slide(p);
+        slide(pos);
     }
     
     // pre condition: the empty (gray) cell is clicked
