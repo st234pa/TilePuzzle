@@ -29,8 +29,6 @@ public abstract class PuzzleSolvers{
         }
     }
     
-    private boolean solve(int count, int last, String stack);
-    
     public boolean solve();
     
 }
