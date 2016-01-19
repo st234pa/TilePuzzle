@@ -1,32 +1,10 @@
-public class PuzzleSolver {
-
-    private Puzzle _puzzle; // save a puzzle we are trying to solve
-
-    private int _count; // counts the number of moves needed to solve the puzzle
-    private String _moves; // a string of the positions that we move into the empty space, separated by 2 dots
+public class PuzzleSolver2 extends PuzzleSolvers{
 
     // pre condition: _puzzle needs to exist
     // post condition: saves _puzzle into the variable p, which is a Puzzle
     // bigO notation: O(1)
-    public PuzzleSolver(Puzzle p) {
+    public PuzzleSolver2(Puzzle p) {
         _puzzle = p;
-    }
-
-    // pre condition: _count needs to exist
-    // post condition: the private int _count is returned
-    // bigO notation: O(1)
-    public int count() {
-        return _count;
-    }
-
-    // pre condition: _moves needs to exist
-    // post condition: the private int _moves is returned
-    // bigO notation: O(1) 
-    public String moves() {
-        return _moves;
-        // returns the string with the moves
-        // we won't really used this
-        // it's mainly for display/debugging 
     }
 
     //WE NEED TO GO OVER THIS BECAUSE IT IS SORT OF CONFUSING
@@ -54,10 +32,4 @@ public class PuzzleSolver {
         // return false otherwise
     }
     
-    // pre condition: the tiles are shuffled and the user is going to click on tiles
-    // post condition: the user has clicked on a tile to move
-    // bigO notation: O(N^2) 
-    public void play(PuzzlePlayer player) {
-        // loops on the _moves and calls the player's puzzle move function for each of the moves
-
 }
