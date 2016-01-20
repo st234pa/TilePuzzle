@@ -155,4 +155,26 @@ public class Puzzle {
 		}
 		return false;
 	}
+	public static void main(String[] args) {
+        Puzzle p = new Puzzle(3);
+        
+        p.print();
+        System.out.println("isSorted="+p.isSolved());
+        
+        //p.(1000);
+        p._puzzle = new int[][] {{8, 6, 7} , {2, 5, 4} , {3, 0, 1}};
+        p._empty_r = 2;
+        p._empty_c = 1;
+        p.print();
+        System.out.println("isSorted="+p.isSolved());
+        
+        //p.solve(31, -1, "");
+
+        /*PuzzleSolver1 s = new PuzzleSolver1(p);
+        s.solve();
+        System.out.println(""+s.count()+"="+s.moves());
+        p.print();
+        System.out.println("isSorted="+p.isSolved());
+        */
+    }
 }
