@@ -25,7 +25,7 @@ public abstract class PuzzleSolvers{
     public void play(PuzzlePlayer player) {
         for (int i = 0 ; i<_moves.length(); i+=2){
             int n = Integer.parseInt(_moves.substring(i,i+1));
-            PuzzlePlayer.puzzleMove(n);
+            player.puzzleMove(n);
         }
     }
     
