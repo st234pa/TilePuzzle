@@ -24,15 +24,15 @@ public class Puzzle {
 	//post(cont'd): where 0 represents the empty cell. _emptyCellRow and _emptyCell column are set to the row and column of the empty cell.
 	//O(n^2)
 	public void reset() {
-		int k = 0;
+		int k = 1;
 		for (int i = 0; i < size(); i++) {
 			for (int j = 0; j < size(); j++) {
 				_puzzle[i][j] = k;
 				k++;
 			}
 		}
-		_emptyCellRow = 0;
-		_emptyCellColumn = 0;
+		_emptyCellRow = size() - 1;
+		_emptyCellColumn = size() - 1;
 		_puzzle[_emptyCellRow][_emptyCellColumn] = 0;
 	}
 
