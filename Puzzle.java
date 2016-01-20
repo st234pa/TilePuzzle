@@ -145,9 +145,9 @@ public class Puzzle {
 	public boolean move(int dr, int dc) { //dr and dc would refer to the relative position of the tile that we want to move.
 		int newRow = emptyRow() + dr;
 		int newCol = emptyRow() + dc;
-		if ((newRow >= 0 && newRow < size()) && (newCol >=0 && newCol < size())) { //checks to see that the tile we want to move is on the board
+		if ((newRow >= 0) && (newRow < size()) && (newCol >=0) && (newCol < size())) { //checks to see that the tile we want to move is on the board
 			//now switch the tile and the empty tile
-			_puzzle[emptyRow()][emptyColumn()] = _puzzle[newRow][newCol];
+			_puzzle[_emptyCellRow][_emptyCellColumn] = _puzzle[newRow][newCol];
 			_puzzle[newRow][newCol] = 0;
 			_emptyCellRow = newRow;
 			_emptyCellColumn = newCol;
@@ -163,8 +163,10 @@ public class Puzzle {
         
         //p.(1000);
         p._puzzle = new int[][] {{8, 6, 7} , {2, 5, 4} , {3, 0, 1}};
+     
         p._emptyCellRow = 2;
         p._emptyCellColumn = 1;
+        p.shuffle(10000);
         p.print();
         System.out.println("isSorted="+p.isSolved());
         
