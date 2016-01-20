@@ -31,8 +31,8 @@ public class Puzzle {
 				k++;
 			}
 		}
-		_emptyCellRow = _puzzle.length - 1;
-		_emptyCellColumn = _puzzle.length - 1;
+		_emptyCellRow = 0;
+		_emptyCellColumn = 0;
 		_puzzle[_emptyCellRow][_emptyCellColumn] = 0;
 	}
 
@@ -166,7 +166,7 @@ public class Puzzle {
      
         p._emptyCellRow = 2;
         p._emptyCellColumn = 1;
-        p.shuffle(10000);
+        p.shuffle(2);
         p.print();
         System.out.println("isSorted="+p.isSolved());
         
