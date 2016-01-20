@@ -163,8 +163,8 @@ public class Puzzle {
         
         //p.(1000);
         p._puzzle = new int[][] {{8, 6, 7} , {2, 5, 4} , {3, 0, 1}};
-        p._empty_r = 2;
-        p._empty_c = 1;
+        p._emptyCellRow = 2;
+        p._emptyCellColumn = 1;
         p.print();
         System.out.println("isSorted="+p.isSolved());
         
