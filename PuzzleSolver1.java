@@ -28,7 +28,7 @@ public class PuzzleSolver1 extends PuzzleSolvers{
     // bigO notation: 
     private boolean solve(int count, int last, String stack) { // variable last: 0 means moved tile on top, 1 moved the tile on the right, 2 means moved tile below, and 3 means moved tile on the left
         if (_puzzle.isSolved()) return true;// check if the puzzle is solved
-        if (_count == null || _count > count){
+        if (_count == 0 || _count > count){
             _count = count;
             _moves = stack;
             return true;
