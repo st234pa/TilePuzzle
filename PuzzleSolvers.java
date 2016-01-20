@@ -23,10 +23,12 @@ public abstract class PuzzleSolvers{
     // post condition: the user has clicked on a tile to move
     // bigO notation: O(N^2)
     public void play(PuzzlePlayer player) {
+        /*
         for (int i = 0 ; i<_moves.length(); i+=2){
             int n = Integer.parseInt(_moves.substring(i,i+1));
             player.puzzleMove(n);
         }
+        */
     }
     
     public boolean solve();
