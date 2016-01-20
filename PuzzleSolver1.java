@@ -36,7 +36,7 @@ public class PuzzleSolver1 extends PuzzleSolvers{
         _count ++; 
         if (_count > 31) return false;// check that the count is not greater than the count max (which is 31 for a 3x3 board)
         // and check that ??????????
-        
+        return false;
 
     }
 
