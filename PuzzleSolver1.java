@@ -16,7 +16,7 @@ public class PuzzleSolver1 extends PuzzleSolvers{
         _count = 0; // clears the counts
         _moves = "";// clears moves
         //  WHAT IS -1 FOR?
-        solve(_count, _count - 1 ; _moves);// use recursive private solve function with solve(0, -1, "")
+        solve(_count,_count - 1 , _moves); //recursive private solve function with solve(0, -1, "")
         if (_count != null) return true;// return true if count is not null (we found something!)
         return false;// return false otherwise
     }
