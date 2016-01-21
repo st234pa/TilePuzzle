@@ -150,7 +150,7 @@ public class Puzzle {
 			_puzzle[_emptyCellRow][_emptyCellColumn] = _puzzle[newRow][newCol];
 			_puzzle[newRow][newCol] = 0;
 			_emptyCellRow = newRow;
-			_emptyCellColumn = newCol;
+			_emptyCellColumn = newCol; 
 			return true;
 		}
 		return false;
