@@ -19,6 +19,7 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
 		//Puzzle creation, 1000 shuffles
 		_puzzle = new Puzzle(n);
 		_puzzle.shuffle(1000);
+        // idea: should have a shuffle button and a solve button!!
 
 		_tiles = new ArrayList<PuzzleTile>();
 		for (int i = 0;i < ( n*n -1); i++)
@@ -95,10 +96,12 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
     // bigO notation: O(1)     
     public void mouseClicked(MouseEvent e) { //this gets called when the user clicks the empty cell (gray) which is really just the board
         // creates a puzzle solver for that _puzzle
-        PuzzleSolver1 solver = new PuzzleSolver1(_puzzle); //THIS STUFF WILL CHANGE IF WE MAKE A SOLVER SUPERCLASS!!!
+        //PuzzleSolvers solver = new PuzzleSolver1(_puzzle); 
+        PuzzleSolvers solver = new PuzzleSolver2(_puzzle); 
         // solve and check the result
         if (solver.solve()) 
             // if it is solved, ask the solver to play using "this" as the player
+            System.out.println(solver.moves());
             solver.play(this);
     }
 
