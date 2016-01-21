@@ -1,10 +1,10 @@
 public class PuzzleSolver2 extends PuzzleSolvers{
 
-    // pre condition: _puzzle needs to exist
+    // pre condition: 
     // post condition: saves _puzzle into the variable p, which is a Puzzle
     // bigO notation: O(1)
     public PuzzleSolver2(Puzzle p) {
-        _puzzle = p;
+        super(p);
     }
 
     //WE NEED TO GO OVER THIS BECAUSE IT IS SORT OF CONFUSING
@@ -17,7 +17,7 @@ public class PuzzleSolver2 extends PuzzleSolvers{
         // then increment the count
         // check that the count is not greater than the count max (which is 31 for a 3x3 board)
         // and check that 
-
+        return false;
     }
 
     // GO OVER THE SOLVERS
@@ -30,6 +30,7 @@ public class PuzzleSolver2 extends PuzzleSolvers{
         // use recursive private solve function with solve(0, -1, "")
         // return true if count is not null (we found something!)
         // return false otherwise
+        return false;
     }
     
 }
