@@ -1,3 +1,7 @@
+import java.util.*;
+import wheels.users.*;
+import java.awt.Color;
+import java.awt.event.*;
 public abstract class Button extends Image {
     private int _x;
     private int _y;
@@ -10,5 +14,5 @@ public abstract class Button extends Image {
         _owner = b;
         _puzzle = p;
     }
-    public abstract mouseClicked(MouseEvent e);
+    public abstract void mouseClicked(MouseEvent e);
 }

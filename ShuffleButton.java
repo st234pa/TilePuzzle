@@ -1,3 +1,7 @@
+import java.util.*;
+import wheels.users.*;
+import java.awt.Color;
+import java.awt.event.*;
 public class ShuffleButton extends Button {
     public ShuffleButton(PuzzleBoard b, Puzzle p) {
         super("ShuffleButton", 30, 30, b, p); //these numbers are random, change to whatever

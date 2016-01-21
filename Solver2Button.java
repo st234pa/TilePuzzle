@@ -1,3 +1,7 @@
+import java.util.*;
+import wheels.users.*;
+import java.awt.Color;
+import java.awt.event.*;
 public class Solver2Button extends Button {
     public Solver2Button(PuzzleBoard b, Puzzle p) {
         super("Solver2", 50, 50, b, p);

@@ -9,6 +9,10 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         
     private Puzzle _puzzle;
     
+    public Puzzle getPuzzle() {
+        return _puzzle;
+    }
+    
     // pre condition: the frame has been created
     // post condition: a board (puzzle) is created and added onto the frame
     //                 a tile arraylist is created  and shuffled
