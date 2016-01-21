@@ -7,9 +7,9 @@ public class PuzzleWindow extends Frame{
     // post condition: makes a new frame and new board and sets board to a given position
     // bigO notation: O(1) 
     public PuzzleWindow(){
-        super();// creates the frame
-        PuzzleBoard board = new PuzzleBoard(3);// creates a puzzle board of size 3
-        board.setLocation(100,100);// sets location of the board to (100, 100)
+        super(); // creates the frame
+        PuzzleBoard board = new PuzzleBoard(3); // creates a puzzle board of size 3
+        board.setLocation(100,100); // sets location of the board to (100, 100)
     }
 
     // pre condition: there is no precondition
