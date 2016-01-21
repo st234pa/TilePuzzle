@@ -1,4 +1,3 @@
-
 import java.util.*;
 import wheels.users.*;
 import java.awt.Color;
@@ -15,7 +14,7 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
     //                 a tile arraylist is created  and shuffled
     // bigO notation: O(N) because we are using a for loop to go through    
     public PuzzleBoard(int n) {
-		super(Color.gray);
+		super(Color.GRAY);
 	
 		//Puzzle creation, 1000 shuffles
 		_puzzle = new Puzzle(n);
@@ -31,18 +30,25 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
     }
     
     public void placeTiles() {
-		if (_puzzle == null) return;  //for overloading
-			placeTiles(1);
+		if (_puzzle == null) 
+            return;  // for overloading
+		placeTiles(1);
     }
 
     // pre condition: a puzzle board has been created and the tile arraylist has been created and shuffled
     // post condition: the shuffled tiles from the arraylist are placed onto the board 
     // bigO notation: O(N^2) 
-	public void placeTiles(int n){
+	private void placeTiles(int n){
 		int x = getXLocation();
 		int y = getYLocation();
-		_tiles.get(n-1).setLocation(x + ((n-1)%_puzzle.size())*(_tiles.get(n-1)).getWidth(), y + ((n-1)/_puzzle.size())*(_tiles.get(n-1)).getHeight());
-		if (n < _tiles.size()) placeTiles(n +1);
+        int p = _puzzle.pos(n);
+        int pr = _puzzle.posRow(p);
+        int pc = _puzzle.posCol(p);
+        PuzzleTile t = _tiles.get(n-1);
+
+		t.setLocation(x + (pc*t.getWidth()), y + (pr*t.getHeight()));
+		if (n < _tiles.size()) 
+            placeTiles(n +1);
 	}
 
     // pre condition: we have all of the tiles and the locations needed to actually place the tiles
@@ -66,9 +72,10 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         // call move    
         int dr = _puzzle.posRow(p) - _puzzle.emptyRow(); //position relative to the empty cell
         int dc = _puzzle.posCol(p) - _puzzle.emptyColumn(); 
+
         //have to check that the move is possible: (0, 1), (0, -1), (-1, 0), (1, 0).
-        if ((Math.abs(dr) == 1 && dc == 0) || (Math.abs(dc) == 1 && dr == 0)) {
-            _puzzle.move(dr, dc); //updates the 2d array
+        if (((Math.abs(dr) == 1) && (dc == 0)) || ((Math.abs(dc) == 1) && (dr == 0))) {
+           _puzzle.move(dr, dc); //updates the 2d array
             placeTiles(); //updates the visuals
         }    
     }
