@@ -144,7 +144,7 @@ public class Puzzle {
 	//O(1)
 	public boolean move(int dr, int dc) { //dr and dc would refer to the relative position of the tile that we want to move.
 		int newRow = emptyRow() + dr;
-		int newCol = emptyRow() + dc;
+		int newCol = emptyColumn() + dc;
 		if ((newRow >= 0) && (newRow < size()) && (newCol >=0) && (newCol < size())) { //checks to see that the tile we want to move is on the board
 			//now switch the tile and the empty tile
 			_puzzle[_emptyCellRow][_emptyCellColumn] = _puzzle[newRow][newCol];
