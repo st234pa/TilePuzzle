@@ -27,17 +27,7 @@ public class PuzzleSolver1 extends PuzzleSolvers{
     // pre condition:
     // post condition:
     // bigO notation: 
-    private boolean solve(int count, int last, String stack) { // variable last: 0 means moved tile on top, 1 moved the tile on the right, 2 means moved tile below, and 3 means moved tile on the left
-        if (_puzzle.isSolved()) return true;// check if the puzzle is solved
-        if (_count == 0 || _count > count){
-            _count = count;
-            _moves = stack;
-            return true;
-        } // if current _count is null or greater than count, then we have a better solution, so save this count into _count and stack into _moves and return true
-        _count ++; 
-        if (_count > 31) return false;// check that the count is not greater than the count max (which is 31 for a 3x3 board)
-        // and check that ??????????
-        return false;
+    private boolean solve(int count, int last, String stack) { 
 
     }
 
