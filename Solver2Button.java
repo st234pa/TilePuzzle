@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.event.*;
 public class Solver2Button extends Button {
     public Solver2Button(PuzzleBoard b, Puzzle p) {
-        super("Solver2", 50, 50, b, p);
+        super("Solver2", 35, 35, b, p);
     }
     public void mouseClicked(MouseEvent e) {
         PuzzleSolvers s = new PuzzleSolver2(_puzzle);
