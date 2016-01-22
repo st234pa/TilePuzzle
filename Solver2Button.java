@@ -8,7 +8,7 @@ public class Solver2Button extends Button {
     //post: creates button visual
     //Big O: O(1)
     public Solver2Button(PuzzleBoard b, Puzzle p) {
-        super("Solver2", 35, 35, b, p);
+        super("Solver2", 170, 30, b, p);
     }
     
     //pre: mouse clicked
