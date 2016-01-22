@@ -1,5 +1,5 @@
 public class PuzzleSolver1 extends PuzzleSolvers{
-// USES BFS ALGO --> finds all paths
+// USES BFS ALGO --> finds all paths 
 // O(N^3) think of travel optimization problems!
 
     // pre condition: 
