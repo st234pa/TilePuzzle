@@ -11,7 +11,7 @@ public class PuzzleWindow extends Frame{
         PuzzleBoard board = new PuzzleBoard(3); // creates a puzzle board of size 3
         board.setLocation(250,150); // sets location of the board to (100, 100)
         Button shufflebutton = new ShuffleButton(board, board.getPuzzle());
-        //Button solver2button = new Solver2Button(board, board.getPuzzle());
+        Button solver2button = new Solver2Button(board, board.getPuzzle());
         Button solverastarbutton = new SolverAStarButton(board, board.getPuzzle());
 
     }
