@@ -13,7 +13,7 @@ public class Solver2Button extends Button {
     
     //pre: mouse clicked
     //post: puzzle solved
-    //Big O: O(N^3)
+    //Big O: O(N^3 )
     public void mouseClicked(MouseEvent e) {
         PuzzleSolvers s = new PuzzleSolver2(_puzzle);
         if (s.solve()) {
