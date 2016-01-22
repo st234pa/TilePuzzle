@@ -25,6 +25,20 @@ public class Puzzle {
 		_emptyCellColumn = p._emptyCellColumn;
 	}
 
+	public boolean equals(Object o) {
+		if ((o == null) || !(o instanceof Puzzle))
+			return false;
+		Puzzle other = (Puzzle)o;
+		if ((_emptyCellRow != other._emptyCellRow) || (_emptyCellColumn != other._emptyCellColumn))
+			return false;
+		for (int i = 0; i < size(); i++) {
+			for (int j = 0; j < size(); j++) {
+				if (_puzzle[i][j] != other._puzzle[i][j])
+					return false;
+			}
+		}
+		return true;
+	}
 
 	//pre: _puzzle is a 2d array of size size().
 	//post: _puzzle tiles are set in correct order as follows:

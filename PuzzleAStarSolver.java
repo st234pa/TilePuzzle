@@ -3,12 +3,14 @@ import java.util.PriorityQueue;
 public class PuzzleAStarSolver extends PuzzleSolvers {
 
     class PuzzleAStarSolverState implements Comparable<PuzzleAStarSolverState> {
+        private final PuzzleAStarSolverState _parent;
         private final Puzzle _puzzle;
         private final int _count;
         private final int _distance;
         private final String _moves;
 
-        PuzzleAStarSolverState(Puzzle puzzle, int count, String moves) {
+        PuzzleAStarSolverState(PuzzleAStarSolverState parent, Puzzle puzzle, int count, String moves) {
+            _parent = parent;
             _puzzle = puzzle;
             _count = count;
             _moves = moves;
@@ -17,6 +19,17 @@ public class PuzzleAStarSolver extends PuzzleSolvers {
 
         public int compareTo(PuzzleAStarSolverState other) {
             return _distance - other._distance;
+        }
+
+        public boolean alreadyIn(Puzzle p) {
+            PuzzleAStarSolverState current = this;
+            while (current != null) {
+                if (current._puzzle.equals(p))
+                    return true;
+                else 
+                    current = current._parent;
+            }
+            return false;
         }
 
     }
@@ -34,7 +47,7 @@ public class PuzzleAStarSolver extends PuzzleSolvers {
     public boolean solve() {
 
         PriorityQueue<PuzzleAStarSolverState> queue = new PriorityQueue<PuzzleAStarSolverState>();
-        queue.add(new PuzzleAStarSolverState(_puzzle, 0, ""));
+        queue.add(new PuzzleAStarSolverState(null, _puzzle, 0, ""));
 
         while ((_count == 0) && (!queue.isEmpty())) { // we have not found solution yet and the queue isn't empty
             PuzzleAStarSolverState current = queue.poll(); // takes the first state out of the queue 
@@ -51,23 +64,23 @@ public class PuzzleAStarSolver extends PuzzleSolvers {
 
                 // move from the top
                 p = new Puzzle(current._puzzle);
-                if (p.move(-1, 0))
-                    queue.add(new PuzzleAStarSolverState(p, c, m+p.emptyPos()+":"));
+                if (p.move(-1, 0) && !current.alreadyIn(p))
+                    queue.add(new PuzzleAStarSolverState(current, p, c, m+p.emptyPos()+":"));
 
                 // move from the right
                 p = new Puzzle(current._puzzle);
-                if (p.move(0, 1))
-                    queue.add(new PuzzleAStarSolverState(p, c, m+p.emptyPos()+":"));
+                if (p.move(0, 1) && !current.alreadyIn(p))
+                    queue.add(new PuzzleAStarSolverState(current, p, c, m+p.emptyPos()+":"));
 
                 // move from the bottom
                 p = new Puzzle(current._puzzle);
-                if (p.move(1, 0))
-                    queue.add(new PuzzleAStarSolverState(p, c, m+p.emptyPos()+":"));
+                if (p.move(1, 0) && !current.alreadyIn(p))
+                    queue.add(new PuzzleAStarSolverState(current, p, c, m+p.emptyPos()+":"));
 
                 // move from the left
                 p = new Puzzle(current._puzzle);
-                if (p.move(0, -1))
-                    queue.add(new PuzzleAStarSolverState(p, c, m+p.emptyPos()+":"));
+                if (p.move(0, -1) && !current.alreadyIn(p))
+                    queue.add(new PuzzleAStarSolverState(current, p, c, m+p.emptyPos()+":"));
             }
         }
         
