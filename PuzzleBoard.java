@@ -23,7 +23,6 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
 		//Puzzle creation, 1000 shuffles
 		_puzzle = new Puzzle(n);
 		//_puzzle.shuffle(1000);
-        // idea: should have a shuffle button and a solve button!!
 
 		_tiles = new ArrayList<PuzzleTile>();
 		for (int i = 0;i < ( n*n -1); i++)
