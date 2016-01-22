@@ -9,6 +9,10 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         
     private Puzzle _puzzle;
     
+    public Puzzle getPuzzle() {
+        return _puzzle;
+    }
+    
     // pre condition: the frame has been created
     // post condition: a board (puzzle) is created and added onto the frame
     //                 a tile arraylist is created  and shuffled
@@ -18,7 +22,7 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
 	
 		//Puzzle creation, 1000 shuffles
 		_puzzle = new Puzzle(n);
-		_puzzle.shuffle(1000);
+		//_puzzle.shuffle(1000);
         // idea: should have a shuffle button and a solve button!!
 
 		_tiles = new ArrayList<PuzzleTile>();
@@ -94,16 +98,17 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
     // pre condition: the empty (gray) cell is clicked
     // post condition: new puzzle solver is created (so, we find the most efficient solution) and then we actually play the solution
     // bigO notation: O(1)     
-    public void mouseClicked(MouseEvent e) { //this gets called when the user clicks the empty cell (gray) which is really just the board
+    /*public void mouseClicked(MouseEvent e) { //this gets called when the user clicks the empty cell (gray) which is really just the board
         // creates a puzzle solver for that _puzzle
         //PuzzleSolvers solver = new PuzzleSolver1(_puzzle); 
         PuzzleSolvers solver = new PuzzleSolver2(_puzzle); 
         // solve and check the result
-        if (solver.solve()) 
+        if (solver.solve()) { 
             // if it is solved, ask the solver to play using "this" as the player
             System.out.println(solver.moves());
             solver.play(this);
-    }
+        }
+    }*/
 
     // pre condition: 
     // post condition:

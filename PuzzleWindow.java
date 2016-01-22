@@ -10,6 +10,8 @@ public class PuzzleWindow extends Frame{
         super(); // creates the frame
         PuzzleBoard board = new PuzzleBoard(3); // creates a puzzle board of size 3
         board.setLocation(250,150); // sets location of the board to (100, 100)
+        Button shufflebutton = new ShuffleButton(board, board.getPuzzle());
+        Button solver2button = new Solver2Button(board, board.getPuzzle());
     }
 
     // pre condition: there is no precondition
