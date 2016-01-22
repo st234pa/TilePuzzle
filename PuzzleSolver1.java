@@ -1,4 +1,4 @@
-public class PuzzleSolver1 extends PuzzleSolvers{
+public class PuzzleSolver1 extends PuzzleSolvers {
 // USES BFS ALGO --> finds all paths 
 // O(N^3) think of travel optimization problems!
 
@@ -28,6 +28,7 @@ public class PuzzleSolver1 extends PuzzleSolvers{
     // post condition:
     // bigO notation: 
     private boolean solve(int count, int last, String stack) { 
+        return false;
 
     }
 
