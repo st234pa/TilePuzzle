@@ -8,9 +8,9 @@ public class PuzzleSolver2 extends PuzzleSolvers {
     }
 
     // 31 moves MAX! for a 3x3 puzzle. the hardest puzzle to solve only needs 31 moves
-    // pre condition:
-    // post condition:
-    // bigO notation: 
+    // pre condition: is called by the public solve() function
+    // post condition: solves the board
+    // bigO notation: O(N^3)
     private void solve(int count, int last, String moves) { 
     // variable last: 0 means moved tile on top, 1 moved the tile on the right, 2 means moved tile below, and 3 means moved tile on the left
         // check if the puzzle is solved
@@ -50,9 +50,9 @@ public class PuzzleSolver2 extends PuzzleSolvers {
 
     }
 
-    // pre condition:
-    // post condition: 
-    // bigO notation:  
+    // pre condition: board is not solved
+    // post condition: board is solved
+    // bigO notation: O(N^3)
     public boolean solve() {
         // clears the counts
         _count = 0;

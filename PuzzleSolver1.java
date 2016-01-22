@@ -2,7 +2,7 @@ public class PuzzleSolver1 extends PuzzleSolvers {
 // USES BFS ALGO --> finds all paths 
 // O(N^3) think of travel optimization problems!
 
-    // pre condition: 
+    // pre condition:  p is not yet solved
     // post condition: saves _puzzle into the variable p, which is a Puzzle
     // bigO notation: O(1)
     public PuzzleSolver1(Puzzle p) {
@@ -10,9 +10,9 @@ public class PuzzleSolver1 extends PuzzleSolvers {
     }
 
     // GO OVER THE SOLVERS
-    // pre condition:
-    // post condition: 
-    // bigO notation: 
+    // pre condition: none
+    // post condition: solves board
+    // bigO notation: O(N^2)
     public boolean solve() {
         _count = 0; // clears the counts
         _moves = "";// clears moves

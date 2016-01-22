@@ -73,21 +73,21 @@ public class Puzzle {
 		return distance;
 	}
 
-	//pre: 
+	//pre: none
 	//post: Returns value of _emptyCellRow, the row of the element 0 in its current position.
 	//O(1)
 	public int emptyRow() {
 		return _emptyCellRow;
 	}
 
-	//pre:
+	//pre: none
 	//post: Returns value of _emptyCellColumn, the column of the element 0 in its current position.
 	//O(1)
 	public int emptyColumn() {
 		return _emptyCellColumn;
 	}
 
-	//pre:
+	//pre: none
 	//post: returns the position of the empty cell, calculated by the row multiplied by the size() + the column.
 	//O(1)
 	public int emptyPos() {
@@ -128,7 +128,7 @@ public class Puzzle {
 		return p % _puzzle.length;
 	}
 
-	//pre:
+	//pre: none
 	//post: prints the values of the elements of _puzzle. rows separated by new lines.
 	//O(n^2)
 	public void print() {
