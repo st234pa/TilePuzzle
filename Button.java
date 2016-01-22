@@ -8,11 +8,12 @@ public abstract class Button extends Image {
     protected PuzzleBoard _owner;
     protected Puzzle _puzzle;
     public Button(String n, int x, int y, PuzzleBoard b, Puzzle p) {
-        super("images/" + n + ".jpg");
+        super("images/" + n + ".png");
         _x = x;
         _y = y;
         _owner = b;
         _puzzle = p;
+        setLocation(x,y);
     }
     public abstract void mouseClicked(MouseEvent e);
 }

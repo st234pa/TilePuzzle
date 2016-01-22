@@ -14,6 +14,18 @@ public class Puzzle {
 		reset();
 	}
 
+	public Puzzle(Puzzle p) { // copy constructor
+		_puzzle = new int[p.size()][p.size()];
+		for (int i = 0; i < size(); i++) {
+			for (int j = 0; j < size(); j++) {
+				_puzzle[i][j] = p._puzzle[i][j];
+			}
+		}
+		_emptyCellRow = p._emptyCellRow;
+		_emptyCellColumn = p._emptyCellColumn;
+	}
+
+
 	//pre: _puzzle is a 2d array of size size().
 	//post: _puzzle tiles are set in correct order as follows:
 	/* (This is a puzzle of size 3.)
@@ -46,6 +58,19 @@ public class Puzzle {
 					return false;
 		}
 		return true;
+	}
+
+	public int distance() { 
+		int distance = 0;
+		for (int i = 0; i < size(); i++) // loops through the rows
+			for (int j = 0; j < size(); j++) {
+				if (_puzzle[i][j] != 0) {
+					int pr = posRow(_puzzle[i][j] - 1);
+					int pc = posCol(_puzzle[i][j] - 1);
+					distance += Math.abs(pr - i) + Math.abs(pc - j);
+				}
+			}
+		return distance;
 	}
 
 	//pre: 
