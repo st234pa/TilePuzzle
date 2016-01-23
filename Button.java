@@ -1,3 +1,5 @@
+//Button abstract superclass.
+
 import java.util.*;
 import wheels.users.*;
 import java.awt.Color;
