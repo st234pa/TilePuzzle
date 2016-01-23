@@ -13,7 +13,7 @@ public class ShuffleButton extends Button {
     
     //pre: mouse is clicked on ShuffleButton
     //post: _puzzle is shuffled, puzzleboard updated
-    //big O: O(N)
+    //big O: O(N^2+N) 
     public void mouseClicked(MouseEvent e) {
         _puzzle.shuffle(1000);
         _owner.placeTiles();

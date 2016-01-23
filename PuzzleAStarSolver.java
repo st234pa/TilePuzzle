@@ -9,6 +9,9 @@ public class PuzzleAStarSolver extends PuzzleSolvers {
         private final int _distance;
         private final String _moves;
 
+        // Pre Condition: 
+        // Post Condition: 
+        //Big O:
         PuzzleAStarSolverState(PuzzleAStarSolverState parent, Puzzle puzzle, int count, String moves) {
             _parent = parent;
             _puzzle = puzzle;
@@ -17,10 +20,16 @@ public class PuzzleAStarSolver extends PuzzleSolvers {
             _distance = _count + puzzle.distance();
         }
 
+        // Pre Condition: 
+        // Post Condition: 
+        //Big O:
         public int compareTo(PuzzleAStarSolverState other) {
             return _distance - other._distance;
         }
 
+        // Pre Condition: 
+        // Post Condition: 
+        //Big O:
         public boolean alreadyIn(Puzzle p) {
             PuzzleAStarSolverState current = this;
             while (current != null) {

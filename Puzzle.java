@@ -96,7 +96,7 @@ public class Puzzle {
 	}
 
 	//pre: none
-	//post: Returns value of _emptyCellRow, the row of the element 0 in its current position.
+	//post: Returns value of _emptyCellRow, the row of the element 0 in its current position
 	//O(1)
 	public int emptyRow() {
 		return _emptyCellRow;
