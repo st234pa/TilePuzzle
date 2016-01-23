@@ -1,19 +1,21 @@
 //class Puzzle, text representation
 
-//this is my comment
 public class Puzzle {
 	private int[][] _puzzle;
 	private int _emptyCellRow;
 	private int _emptyCellColumn;
 
-	//pre: Size is > 1. For this project, size is always equal to 3 or 4.
+	//pre: Size is > 1. For this project, size is always 3 (because otherwise the solvers won't work). But theoretically can make a board of any size.
 	//post: _puzzle is set to a 2d array (square) with size rows and columns, and is reset.
-	//O(n^2)
+	//O(n^2) because reset() has O(n^2) and the rest is O(1)
 	public Puzzle(int size) {
 		_puzzle = new int[size][size];
 		reset();
 	}
-
+	
+	//pre: p is a puzzle whose values are assigned.
+	//post: sets _puzzle instance variable to a 2d array of the same size as p, copies the values into _puzzle.
+	//O(n^2)
 	public Puzzle(Puzzle p) { // copy constructor
 		_puzzle = new int[p.size()][p.size()];
 		for (int i = 0; i < size(); i++) {
@@ -24,7 +26,10 @@ public class Puzzle {
 		_emptyCellRow = p._emptyCellRow;
 		_emptyCellColumn = p._emptyCellColumn;
 	}
-
+	
+	//pre: _puzzle is already set up by reset(), possibly shuffled.
+	//post: checks if other and _puzzle have the same empty cell row/column and if the integers are in the same rows and columns in both puzzles. If not, return false, if yes, return true.
+	//O(n^2)
 	public boolean equals(Object o) {
 		if ((o == null) || !(o instanceof Puzzle))
 			return false;
@@ -73,7 +78,10 @@ public class Puzzle {
 		}
 		return true;
 	}
-
+	
+	//pre: _puzzle is already assigned to a square 2d array, values already assigned by reset().
+	//post: Calculates the difference between the current _puzzle and the sorted puzzle by adding the distances between the current position of the tiles and the position they are supposed to have when solved.
+	//O(n^2)
 	public int distance() { 
 		int distance = 0;
 		for (int i = 0; i < size(); i++) // loops through the rows
@@ -142,18 +150,6 @@ public class Puzzle {
 		return p % _puzzle.length;
 	}
 
-	//pre: none
-	//post: prints the values of the elements of _puzzle. rows separated by new lines.
-	//O(n^2)
-	public void print() {
-		for (int i = 0; i < size(); i++) {
-			for (int j = 0; j < size(); j++) {
-				System.out.print("[ " + at(i, j) + "] ");
-			}
-			System.out.println();
-		}
-	}
-
 	//pre: _puzzle is a square 2-d array
 	//post: returns the size of the _puzzle, or the length of _puzzle.
 	//O(1)
@@ -161,7 +157,7 @@ public class Puzzle {
 		return _puzzle.length;
 	}
 
-	//pre: count > 0. _puzzle is set up.
+	//pre: count > 0. _puzzle is set up by reset().
 	//post: moves random tiles count times. --> shuffled board.
 	//O(n)
 	public void shuffle(int count) { // count is the number of random moves to make
@@ -194,22 +190,4 @@ public class Puzzle {
 		}
 		return false;
 	}
-	public static void main(String[] args) {
-        Puzzle p = new Puzzle(3);
-        
-        p.print();
-        System.out.println("isSorted="+p.isSolved());
-        p.shuffle(2);
-        p.print();
-        System.out.println("isSorted="+p.isSolved());
-        
-        //p.solve(31, -1, "");
-
-        /*PuzzleSolver1 s = new PuzzleSolver1(p);
-        s.solve();
-        System.out.println(""+s.count()+"="+s.moves());
-        p.print();
-        System.out.println("isSorted="+p.isSolved());
-        */
-    }
 }
