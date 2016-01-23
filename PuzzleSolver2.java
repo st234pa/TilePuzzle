@@ -52,7 +52,7 @@ public class PuzzleSolver2 extends PuzzleSolvers {
 
     // pre condition: board is not solved
     // post condition: board is solved
-    // bigO notation: O(N^3)
+    // bigO notation: O(N^3) bc recursive
     public boolean solve() {
         // clears the counts
         _count = 0;

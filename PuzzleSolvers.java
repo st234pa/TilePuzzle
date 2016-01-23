@@ -6,6 +6,9 @@ public abstract class PuzzleSolvers {
     protected String _moves; // a string of the positions that we move into the empty space, separated by 2 dotsPuz
     
     // constructor
+    //pre:
+    //post:
+    //O()
     public PuzzleSolvers(Puzzle p) {
         _puzzle = p;
     }

@@ -16,14 +16,13 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
     // pre condition: the frame has been created
     // post condition: a board (puzzle) is created and added onto the frame
     //                 a tile arraylist is created  and shuffled
-    // bigO notation: O(N) because we are using a for loop to go through    
+    // bigO notation: O(N)    
     public PuzzleBoard(int n) {
 		super(Color.GRAY);
 	
 		//Puzzle creation, 1000 shuffles
 		_puzzle = new Puzzle(n);
-		//_puzzle.shuffle(1000);
-
+		
 		_tiles = new ArrayList<PuzzleTile>();
 		for (int i = 0;i < ( n*n -1); i++)
 			_tiles.add(new PuzzleTile(this,i+1));
@@ -33,13 +32,16 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
 		this.setSize(_tiles.get(0).getWidth() * n, _tiles.get(0).getHeight() *n); //sets the board size for the tiles
     }
     
+    //pre: a puzzle board has been created and the tile arraylist has been created and shuffled
+    //post: the shuffled tiles from the arraylist are placed onto the board
+    //O(n^3) because recursive (--> so n steps) and placeTiles(n) is O(n^2)
     public void placeTiles() {
 		if (_puzzle == null) 
             return;  // for overloading
 		placeTiles(1);
     }
 
-    // pre condition: a puzzle board has been created and the tile arraylist has been created and shuffled
+    // pre condition: a puzzle board has been created and the tile arraylist has been created and shuffled, placeTiles(1) called by placeTiles()
     // post condition: the shuffled tiles from the arraylist are placed onto the board 
     // bigO notation: O(N^2) 
 	private void placeTiles(int n){
@@ -94,24 +96,9 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         slide(pos);
     }
     
-    // pre condition: the empty (gray) cell is clicked
-    // post condition: new puzzle solver is created (so, we find the most efficient solution) and then we actually play the solution
-    // bigO notation: O(1)     
-    /*public void mouseClicked(MouseEvent e) { //this gets called when the user clicks the empty cell (gray) which is really just the board
-        // creates a puzzle solver for that _puzzle
-        //PuzzleSolvers solver = new PuzzleSolver1(_puzzle); 
-        PuzzleSolvers solver = new PuzzleSolver2(_puzzle); 
-        // solve and check the result
-        if (solver.solve()) { 
-            // if it is solved, ask the solver to play using "this" as the player
-            System.out.println(solver.moves());
-            solver.play(this);
-        }
-    }*/
-
     // pre condition: 
     // post condition:
-    // bigO notation:         
+    // bigO notation: O(n^2) because slide(pos) is O(n^2) and everything else is O(1)         
     public void puzzleMove(int pos) {
         // this is called by the player to play every move
         slide(pos);
