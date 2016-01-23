@@ -34,7 +34,7 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
     
     //pre: a puzzle board has been created and the tile arraylist has been created and shuffled
     //post: the shuffled tiles from the arraylist are placed onto the board
-    //O(n^3) because recursive (--> so n steps) and placeTiles(n) is O(n^2)
+    //O(n^2)
     public void placeTiles() {
 		if (_puzzle == null) 
             return;  // for overloading
@@ -43,7 +43,7 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
 
     // pre condition: a puzzle board has been created and the tile arraylist has been created and shuffled, placeTiles(1) called by placeTiles()
     // post condition: the shuffled tiles from the arraylist are placed onto the board 
-    // bigO notation: O(N^2) 
+    // bigO notation: O(1) 
 	private void placeTiles(int n){
 		int x = getXLocation();
 		int y = getYLocation();
