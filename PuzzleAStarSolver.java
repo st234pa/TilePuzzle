@@ -9,9 +9,9 @@ public class PuzzleAStarSolver extends PuzzleSolvers {
         private final int _distance;
         private final String _moves;
 
-        // Pre Condition: 
-        // Post Condition: 
-        //Big O:
+        // Pre Condition: must have _parent, _puzzle, _count, _distance, and _moves instance variables
+        // Post Condition: saves the instance variables
+        // Big O: 0(1)
         PuzzleAStarSolverState(PuzzleAStarSolverState parent, Puzzle puzzle, int count, String moves) {
             _parent = parent;
             _puzzle = puzzle;
@@ -20,16 +20,16 @@ public class PuzzleAStarSolver extends PuzzleSolvers {
             _distance = _count + puzzle.distance();
         }
 
-        // Pre Condition: 
-        // Post Condition: 
-        //Big O:
+        // Pre Condition: both this and other need to have an _distance instance variable
+        // Post Condition: compares the distances of this and other (both are PuzzleAStarSolverState s)
+        // Big O: O(1)
         public int compareTo(PuzzleAStarSolverState other) {
             return _distance - other._distance;
         }
 
-        // Pre Condition: 
-        // Post Condition: 
-        //Big O:
+        // Pre Condition: current is not null, checking if a PuzzleAStarSolverState already exists
+        // Post Condition: returns true if a PuzzleAStarSolverState already exists and false otherwise
+        // Big O: O(N)
         public boolean alreadyIn(Puzzle p) {
             PuzzleAStarSolverState current = this;
             while (current != null) {
@@ -43,16 +43,16 @@ public class PuzzleAStarSolver extends PuzzleSolvers {
 
     }
 
-    // pre condition: 
+    // pre condition: requires a puzzle
     // post condition: saves _puzzle into the variable p, which is a Puzzle
     // bigO notation: O(1)
     public PuzzleAStarSolver(Puzzle p) {
         super(p);
     }
 
-    // pre condition:
-    // post condition: 
-    // bigO notation: 
+    // pre condition: requires a puzzle (if it is already solved then it won't do anything)
+    // post condition: gives the most optimal course to solve the puzzle
+    // bigO notation: O(N)
     public boolean solve() {
 
         PriorityQueue<PuzzleAStarSolverState> queue = new PriorityQueue<PuzzleAStarSolverState>();

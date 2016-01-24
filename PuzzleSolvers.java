@@ -6,9 +6,9 @@ public abstract class PuzzleSolvers {
     protected String _moves; // a string of the positions that we move into the empty space, separated by 2 dotsPuz
     
     // constructor
-    //pre:
-    //post:
-    //O()
+    //pre: needs a puzzle to be inputted
+    //post: saves _puzzle into a variable
+    //O(1)
     public PuzzleSolvers(Puzzle p) {
         _puzzle = p;
     }
@@ -31,7 +31,7 @@ public abstract class PuzzleSolvers {
     
      // pre condition: the tiles are shuffled and the user is going to click on tiles
     // post condition: the user has clicked on a tile to move
-    // bigO notation: O(N^2)
+    // bigO notation: O(N^3)
     public void play(PuzzlePlayer player) {
         for (int i = 0 ; i<_moves.length(); i+=2){
             int n = Integer.parseInt(_moves.substring(i,i+1));

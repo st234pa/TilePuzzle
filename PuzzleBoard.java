@@ -9,23 +9,26 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         
     private Puzzle _puzzle;
     
+    //pre: the PuzzleBoard has been created and puzzle is already created.
+    //post: return instance variable _puzzle
+    //O(1)
     public Puzzle getPuzzle() {
         return _puzzle;
     }
     
     // pre condition: the frame has been created
-    // post condition: a board (puzzle) is created and added onto the frame
+    // post condition: a board is created and added onto the frame
     //                 a tile arraylist is created  and shuffled
     // bigO notation: O(N)    
-    public PuzzleBoard(int n) {
+    public PuzzleBoard(int n, String mode) {
 		super(Color.GRAY);
 	
-		//Puzzle creation, 1000 shuffles
+		//Puzzle creation
 		_puzzle = new Puzzle(n);
 		
 		_tiles = new ArrayList<PuzzleTile>();
 		for (int i = 0;i < ( n*n -1); i++)
-			_tiles.add(new PuzzleTile(this,i+1));
+			_tiles.add(new PuzzleTile(this,i+1, mode));
             
 		placeTiles();
 
@@ -96,8 +99,8 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         slide(pos);
     }
     
-    // pre condition: 
-    // post condition:
+    // pre condition: called by player
+    // post condition: update the puzzle and the board by one step, wait, repeat.
     // bigO notation: O(n^2) because slide(pos) is O(n^2) and everything else is O(1)         
     public void puzzleMove(int pos) {
         // this is called by the player to play every move
