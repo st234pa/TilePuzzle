@@ -25,7 +25,7 @@ public class PuzzleWindow extends Frame{
         String ans = scan.nextLine();
         if (ans.equals("y")) {
             System.out.println("Do you want to play in number mode or Platek mode? (n/p): ");
-            mode = scan.nextLine();
+            String mode = scan.nextLine();
             PuzzleWindow p = new PuzzleWindow(mode);// creates a new puzzle window
         }
     }
